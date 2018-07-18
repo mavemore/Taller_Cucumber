@@ -20,7 +20,7 @@ Característica: Obtener libros por autor
   Escenario: Busca los libros mas populares
       Dada que el usuario ingresa Busqueda Popular
 	  Cuando quiere saber los libros mas rankeados
-      Y estos son
+      Y estos libros son
       | LIBROS                   |
       | Persona Normal           |
       | Corazonadas              |

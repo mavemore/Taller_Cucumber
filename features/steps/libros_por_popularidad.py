@@ -26,7 +26,7 @@ def step_impl(context):
 
 
 
-@then("estos son")
+@then("estos libros son")
 def step_impl(context):
 	son_libros_esperados = True
 	libros_esperados = []
