@@ -2,8 +2,9 @@
 
 Característica: Obtener libros por autor
 
-  Antecedentes: 
-      Dado una lista de libros
+  @Populares
+  Escenario: Busca los libros mas populares
+	Dado una lista de libros
      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
      | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
@@ -15,19 +16,16 @@ Característica: Obtener libros por autor
      | Stardust                 | Neil Gaiman   | 9780380804559 | 4.08   | fantasía  | inglés  |
      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
-
-  @Populares
-  Escenario: Busca los libros mas populares
-	  Cuando quiere saber los libros mas rankeados
-	  Entonces obtendra los libros mas rankeados
-      Y estos libros son
+	Cuando quiere saber los libros mas rankeados
+	Entonces obtendra los libros mas rankeados
+    Y estos libros son
       | LIBROS                   |
       | Persona Normal           |
       | Corazonadas              |
 	  | The Lies of Locke Lamora |
 	  | It                       |
 	  | La Historia Interminable |
-      Y recibe el mensaje 'Estos son los 5 libros con mejor puntuación.'
+    Y recibe el mensaje 'Estos son los 5 libros con mejor puntuación.'
 
 
   

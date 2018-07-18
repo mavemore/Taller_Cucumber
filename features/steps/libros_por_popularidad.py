@@ -14,16 +14,21 @@ def step_impl(context):
 		lista_libros.append(libro)
 	context.libros = lista_libros
 
-@given("que el usuario ingresa Busqueda Popular")
-def step_impl(context, Populares):
-	context.busqueda = Populares
-
 @when("quiere saber los libros mas rankeados")
 def step_impl(context):
-	resultado, mensaje = get_populares(context.libros)
-	context.resultado = resultado
-	context.mensaje = mensaje
+	result, mess = get_populares(context.libros)
+	context.resultado = result
+	context.mensaje = mess
 
+@then(u'obtendra los libros mas rankeados')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then  obtendra los libros mas rankeados')
+
+
+@then(u'estos libros son')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: Then estos libros son')	
+	
 @then("recibe el mensaje '{mensaje}'")
 def step_impl(context, mensaje):
 	assert context.mensaje == mensaje
