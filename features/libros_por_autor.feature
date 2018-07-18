@@ -2,7 +2,7 @@
 
 Característica: Obtener libros por autor
 
-  Antecedentes: 
+  Antecedentes:
       Dado un conjunto de libros
      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
