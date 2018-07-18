@@ -28,4 +28,28 @@ Característica: Devuelve los top 5 libros con mejor rating
       | It                       |
       | La Historia Interminable |
       Y obtiene el mensaje 'Estos son los 5 libros con mejor puntuacion.'
+  @autor
+  Escenario: Busca los libros con mayor rating (cuando hay menos de 5 libros)
+      Dado un conjunto de libros
+     | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
+     | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
+     | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
+     | The Humans               | Matt Haig     | 9780857868787 | 4.08   | scifi     | inglés  |
+
+      Cuando busque los 5 libros más populares
+      Entonces obtendrá 3 libros de resultado
+      Y estos son
+      | LIBROS                   |
+      | The Lies of Locke Lamora |
+      | It                       |
+      | The Humans               |
+      Y obtiene el mensaje 'Estos son los 3 libros con mejor puntuacion.'
+
+  @autor
+  Escenario: Busca los libros con mayor rating (y no hay libros)
+      Dado un conjunto de libros
+     | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |      
+      Cuando busque los 5 libros más populares
+      Entonces obtendrá 0 libros de resultado
+      Y obtiene el mensaje 'No existen libros a mostrar.'
 
