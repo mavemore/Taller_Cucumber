@@ -1,9 +1,9 @@
 # language: es
 
-Característica: Obtener libros por autor
+Característica: Obtener libro por isbm
 
   Antecedentes: 
-      Dado un conjunto de libros
+      Dado un conjunto de libros 
      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
      | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
@@ -17,21 +17,11 @@ Característica: Obtener libros por autor
      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
 
   @autor
-  Escenario: Busca un autor del cual existen libros: Neil Gaiman
-      Dada que el usuario ingresa el autor 'Neil Gaiman'
-      Cuando busque los libros por autor
-      Entonces obtendrá 3 libros de resultado
-      Y estos son
+  Escenario: Busca un isbm del cual existe un libro: 9786070736315
+      Dada que el usuario ingresa el codigo '9786070736315'
+      Cuando busque los libros por isbm
+      Entonces obtendrá 1 libro de resultado
+      Y este es
       | LIBROS                   |
-      | Anansi Boys              |
-      | American Gods            |
-      | Stardust                 |
-      Y obtiene el mensaje 'Existen 3 libros de este autor.'
-
-  @autor
-  Escenario: Busca un autor del cual no existen libros: Patrick Rothfuss
-      Dada que el usuario ingresa el autor 'Patrick Rothfuss'
-      Cuando busque los libros por autor
-      Entonces obtendrá 0 libros de resultado
-      Y obtiene el mensaje 'No existen libros para ese autor.'
-
+      | Corazonadas              |
+      Y obtiene el mensaje  'Se encontró 1 libro con ese ISBN.'

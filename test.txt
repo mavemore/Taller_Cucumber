@@ -1,0 +1,130 @@
+Característica: Obtener libro por isbm # features/libro_por_isbm.feature:3
+
+  Antecedentes:   # features/libro_por_isbm.feature:5
+
+  @autor
+  Escenario: Busca un isbm del cual existe un libro: 9786070736315  # features/libro_por_isbm.feature:20
+    Dado un conjunto de libros                                      # features/steps/libros_por_autor.py:8
+      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
+      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
+      | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
+      | The Humans               | Matt Haig     | 9780857868787 | 4.08   | scifi     | inglés  |
+      | Persona Normal           | Benito Taibo  | 9786070715082 | 4.49   | jóvenes   | español |
+      | Corazonadas              | Benito Taibo  | 9786070736315 | 4.49   | jóvenes   | español |
+      | Anansi Boys              | Neil Gaiman   | 9780060515195 | 4.01   | fantasía  | inglés  |
+      | American Gods            | Neil Gaiman   | 9780380789030 | 4.11   | fantasía  | inglés  |
+      | Stardust                 | Neil Gaiman   | 9780380804559 | 4.08   | fantasía  | inglés  |
+      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
+      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
+    Dada que el usuario ingresa el codigo '9786070736315'           # features/steps/libro_por_isbm.py:17
+    Cuando busque los libros por isbm                               # features/steps/libro_por_isbm.py:21
+    Entonces obtendrá 1 libro de resultado                          # features/steps/libro_por_isbm.py:27
+    Y este es                                                       # features/steps/libro_por_isbm.py:31
+      | LIBROS      |
+      | Corazonadas |
+    Y obtiene el mensaje  'Se encontró 1 libro con ese ISBN.'       # features/steps/libro_por_isbm.py:44
+
+Característica: Obtener libro por popularidad # features/libro_por_popularidad.feature:3
+
+  @autor
+  Escenario: Existen mas de 5 libros                                      # features/libro_por_popularidad.feature:6
+    Dado un conjunto de libros                                            # features/steps/libros_por_autor.py:8
+      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
+      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
+      | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
+      | The Humans               | Matt Haig     | 9780857868787 | 4.08   | scifi     | inglés  |
+      | Persona Normal           | Benito Taibo  | 9786070715082 | 4.49   | jóvenes   | español |
+      | Corazonadas              | Benito Taibo  | 9786070736315 | 4.49   | jóvenes   | español |
+      | Anansi Boys              | Neil Gaiman   | 9780060515195 | 4.01   | fantasía  | inglés  |
+      | American Gods            | Neil Gaiman   | 9780380789030 | 4.11   | fantasía  | inglés  |
+      | Stardust                 | Neil Gaiman   | 9780380804559 | 4.08   | fantasía  | inglés  |
+      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
+      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
+    Cuando busque los libros por popularidad                              # features/steps/libro_por_popularidad.py:19
+    Entonces obtendrá  5 libros de resultado                              # features/steps/libro_por_popularidad.py:25
+    Y estos son                                                           # features/steps/libros_por_autor.py:31
+      | LIBROS                   |
+      | Persona Normal           |
+      | Corazonadas              |
+      | The Lies of Locke Lamora |
+      | It                       |
+      | La Historia Interminable |
+    Y obtiene el mensaje   'Estos son los 5 libros con mejor puntuación.' # features/steps/libro_por_popularidad.py:43
+
+  @autor
+  Escenario: Existen menos de 5 libros                                    # features/libro_por_popularidad.feature:31
+    Dado un conjunto de libros                                            # features/steps/libros_por_autor.py:8
+      | NOMBRE                   | AUTOR        | ISBN          | RATING | CATEGORIA | IDIOMA  |
+      | The Lies of Locke Lamora | Scott Lynch  | 9780553588941 | 4.30   | fantasía  | inglés  |
+      | It                       | Stephen King | 9781501142970 | 4.21   | horror    | inglés  |
+      | The Humans               | Matt Haig    | 9780857868787 | 4.08   | scifi     | inglés  |
+      | Persona Normal           | Benito Taibo | 9786070715082 | 4.49   | jóvenes   | español |
+    Cuando busque los libros por popularidad                              # features/steps/libro_por_popularidad.py:19
+    Entonces obtendrá  4 libros de resultado                              # features/steps/libro_por_popularidad.py:25
+    Y estos son                                                           # features/steps/libros_por_autor.py:31
+      | LIBROS                   |
+      | The Lies of Locke Lamora |
+      | It                       |
+      | Persona Normal           |
+      | The Humans               |
+    Y obtiene el mensaje   'Estos son los 4 libros con mejor puntuación.' # features/steps/libro_por_popularidad.py:43
+
+  @autor
+  Escenario: No existen lirbos                            # features/libro_por_popularidad.feature:49
+    Dado un conjunto de libros                            # features/steps/libros_por_autor.py:8
+      | NOMBRE | AUTOR | ISBN | RATING | CATEGORIA | IDIOMA |
+    Cuando busque los libros por popularidad              # features/steps/libro_por_popularidad.py:19
+    Entonces obtendrá  0 libros de resultado              # features/steps/libro_por_popularidad.py:25
+    Y obtiene el mensaje   'No existen libros a mostrar.' # features/steps/libro_por_popularidad.py:43
+
+Característica: Obtener libros por autor # features/libros_por_autor.feature:3
+
+  Antecedentes:   # features/libros_por_autor.feature:5
+
+  @autor
+  Escenario: Busca un autor del cual existen libros: Neil Gaiman  # features/libros_por_autor.feature:20
+    Dado un conjunto de libros                                    # features/steps/libros_por_autor.py:8
+      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
+      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
+      | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
+      | The Humans               | Matt Haig     | 9780857868787 | 4.08   | scifi     | inglés  |
+      | Persona Normal           | Benito Taibo  | 9786070715082 | 4.49   | jóvenes   | español |
+      | Corazonadas              | Benito Taibo  | 9786070736315 | 4.49   | jóvenes   | español |
+      | Anansi Boys              | Neil Gaiman   | 9780060515195 | 4.01   | fantasía  | inglés  |
+      | American Gods            | Neil Gaiman   | 9780380789030 | 4.11   | fantasía  | inglés  |
+      | Stardust                 | Neil Gaiman   | 9780380804559 | 4.08   | fantasía  | inglés  |
+      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
+      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
+    Dada que el usuario ingresa el autor 'Neil Gaiman'            # features/steps/libros_por_autor.py:17
+    Cuando busque los libros por autor                            # features/steps/libros_por_autor.py:21
+    Entonces obtendrá 3 libros de resultado                       # features/steps/libros_por_autor.py:27
+    Y estos son                                                   # features/steps/libros_por_autor.py:31
+      | LIBROS        |
+      | Anansi Boys   |
+      | American Gods |
+      | Stardust      |
+    Y obtiene el mensaje 'Existen 3 libros de este autor.'        # features/steps/libros_por_autor.py:45
+
+  @autor
+  Escenario: Busca un autor del cual no existen libros: Patrick Rothfuss  # features/libros_por_autor.feature:32
+    Dado un conjunto de libros                                            # features/steps/libros_por_autor.py:8
+      | NOMBRE                   | AUTOR         | ISBN          | RATING | CATEGORIA | IDIOMA  |
+      | The Lies of Locke Lamora | Scott Lynch   | 9780553588941 | 4.30   | fantasía  | inglés  |
+      | It                       | Stephen King  | 9781501142970 | 4.21   | horror    | inglés  |
+      | The Humans               | Matt Haig     | 9780857868787 | 4.08   | scifi     | inglés  |
+      | Persona Normal           | Benito Taibo  | 9786070715082 | 4.49   | jóvenes   | español |
+      | Corazonadas              | Benito Taibo  | 9786070736315 | 4.49   | jóvenes   | español |
+      | Anansi Boys              | Neil Gaiman   | 9780060515195 | 4.01   | fantasía  | inglés  |
+      | American Gods            | Neil Gaiman   | 9780380789030 | 4.11   | fantasía  | inglés  |
+      | Stardust                 | Neil Gaiman   | 9780380804559 | 4.08   | fantasía  | inglés  |
+      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
+      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
+    Dada que el usuario ingresa el autor 'Patrick Rothfuss'               # features/steps/libros_por_autor.py:17
+    Cuando busque los libros por autor                                    # features/steps/libros_por_autor.py:21
+    Entonces obtendrá 0 libros de resultado                               # features/steps/libros_por_autor.py:27
+    Y obtiene el mensaje 'No existen libros para ese autor.'              # features/steps/libros_por_autor.py:45
+
+3 features passed, 0 failed, 0 skipped
+6 scenarios passed, 0 failed, 0 skipped
+31 steps passed, 0 failed, 0 skipped, 0 undefined
+Took 0m0.003s
