@@ -18,8 +18,8 @@ Característica: Obtener libros por autor
 
   @Populares
   Escenario: Busca los libros mas populares
-      Dada que el usuario ingresa Busqueda Popular
 	  Cuando quiere saber los libros mas rankeados
+	  Entonces obtendra los libros mas rankeados
       Y estos libros son
       | LIBROS                   |
       | Persona Normal           |

@@ -24,30 +24,6 @@ def step_impl(context):
 	context.resultado = resultado
 	context.mensaje = mensaje
 
-
-@when(u'estos libros son')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When estos libros son')
-	
-@when(u'recibe el mensaje \'Estos son los 5 libros con mejor puntuación.\'')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: When recibe el mensaje \'Estos son los 5 libros con mejor puntuación.\'')
-
-	
-	@then("estos libros son")
-def step_impl(context):
-	son_libros_esperados = True
-	libros_esperados = []
-	for row in context.table:
-		libros_esperados.append(row['LIBROS'])
-		print(libros_esperados)
-	for libro in context.resultado:
-		print(libro.nombre)
-		if libro.nombre not in libros_esperados:
-			print("No estan " + libro.nombre)
-			son_libros_esperados = False
-	assert son_libros_esperados is True
-
 @then("recibe el mensaje '{mensaje}'")
 def step_impl(context, mensaje):
 	assert context.mensaje == mensaje
