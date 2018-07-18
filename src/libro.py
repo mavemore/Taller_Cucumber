@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Libro(object):
 	"""Clase Libro"""
 	def __init__(self, nombre, autor, isbn, rating, categoria, idioma):

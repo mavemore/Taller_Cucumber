@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from behave import *
 from src.libro import Libro
 from src.reader import *
