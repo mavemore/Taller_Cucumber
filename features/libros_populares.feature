@@ -1,6 +1,6 @@
 # language: es
 
-Característica: Obtener libros por autor
+Característica: Obtener libros por populares
 
   Antecedentes: 
       Dado un conjunto de libros
@@ -17,20 +17,36 @@ Característica: Obtener libros por autor
      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
 
   @autor
-  Escenario: Busca un autor del cual existen libros: Neil Gaiman
-      Dada que el usuario ingresa el autor 'Neil Gaiman'
-      Cuando busque los libros por autor
-      Entonces obtendrá 3 libros de resultado
-      Y estos son
+  Escenario: Busca los 5 libros mas populares
+      Dada usando una cantidad de 10 libros
+      Cuando busque los 5 libros con mejor puntuacion
+      Entonces obtendrá 5 libros con mejor puntuacion
+      Y estos son populares
       | LIBROS                   |
-      | Anansi Boys              |
-      | American Gods            |
-      | Stardust                 |
-      Y obtiene el mensaje 'Existen 3 libros de este autor.'
+      | Persona Normal              |
+      | Corazonadas            |
+      | The Lies of Locke Lamora                 |
+      | It                 |
+      | La Historia Interminable                |
+      Y obtiene el mensaje 'Estos son los 5 libros con mejor puntuación.' populares
 
   @autor
-  Escenario: Busca un autor del cual no existen libros: Patrick Rothfuss
-      Dada que el usuario ingresa el autor 'Patrick Rothfuss'
-      Cuando busque los libros por autor
-      Entonces obtendrá 0 libros de resultado
-      Y obtiene el mensaje 'No existen libros para ese autor.'
+  Escenario: Busca los 3 libros mas populares
+      Dada usando una cantidad de 3 libros
+      Cuando busque los 3 libros con mejor puntuacion
+      Entonces obtendrá 3 libros con mejor puntuacion
+      Y estos son populares
+      | LIBROS                   |
+      | The Lies of Locke Lamora              |
+      | It            |
+      | The Humans                 |
+      Y obtiene el mensaje 'Estos son los 3 libros con mejor puntuación.' populares
+
+  @autor
+  Escenario: Busca los 0 libros mas populares
+      Dada usando una cantidad de 0 libros
+      Cuando busque los 0 libros con mejor puntuacion
+      Entonces obtendrá 0 libros con mejor puntuacion
+      Y estos son populares
+      | LIBROS                   |
+      Y obtiene el mensaje 'No existen libros a mostrar.' populares

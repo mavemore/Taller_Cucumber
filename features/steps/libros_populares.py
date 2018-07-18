@@ -3,32 +3,32 @@ from src.libro import Libro
 from src.reader import *
 
 def before_scenario(context, scenario):
-	context = {}
+    context = {}
 
-@given("mi conjunto de libros")
+@given("un conjunto de libros por populares")
 def step_impl(context):
     lista_libros = []
     for row in context.table:
         libro = Libro(row['NOMBRE'], row['AUTOR'],row['ISBN'],
-                      row['RATING'],row['CATEGORIA'],row['IDIOMA'])
+            row['RATING'],row['CATEGORIA'],row['IDIOMA'])
         lista_libros.append(libro)
-        context.libros = lista_libros
+    context.libros = lista_libros
 
-@given("mi lista de libros es de {total} libros")
-def step_impl(context, total):
-    context.libros = context.libros[:int(total)]
+@given("usando una cantidad de {libros} libros")
+def step_impl(context, libros):
+    context.libros = context.libros[:int(libros)]
 
-@when("busco los libros populares")
-def step_impl(context):
+@when("busque los {cantidad} libros con mejor puntuacion")
+def step_impl(context, cantidad):
     resultado, mensaje = get_populares(context.libros)
     context.resultado = resultado
     context.mensaje = mensaje
 
-@then("se obtendrá {cantidad} libros de resultado")
-def step_impl(context, cantidad):
-    assert len(context.resultado) == int(cantidad)
+@then("obtendrá {total} libros con mejor puntuacion")
+def step_impl(context,total):
+    assert len(context.resultado) == int(total)
 
-@then("El resultado será")
+@then("estos son populares")
 def step_impl(context):
     son_libros_esperados = True
     libros_esperados = []
@@ -42,6 +42,6 @@ def step_impl(context):
             son_libros_esperados = False
     assert son_libros_esperados is True
 
-@then("se obtendrá el mensaje '{mensaje}'")
+@then("obtiene el mensaje '{mensaje}' populares")
 def step_impl(context, mensaje):
     assert context.mensaje == mensaje
