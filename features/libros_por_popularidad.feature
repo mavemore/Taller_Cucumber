@@ -27,7 +27,7 @@ Característica: Obtener libros por autor
 	  | The Lies of Locke Lamora |
 	  | It                       |
 	  | La Historia Interminable |
-      Y obtiene el mensaje 'Estos son los 5 libros con mejor puntuación.'
+      Y recibe el mensaje 'Estos son los 5 libros con mejor puntuación.'
 
 
   
