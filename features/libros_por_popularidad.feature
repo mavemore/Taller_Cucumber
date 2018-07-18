@@ -16,21 +16,18 @@ Característica: Obtener libros por autor
      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
 
-  @autor
-  Escenario: Busca un autor del cual existen libros: Neil Gaiman
-      Dada que el usuario ingresa el autor 'Neil Gaiman'
-      Cuando busque los libros por autor
-      Entonces obtendrá 3 libros de resultado
+  @Populares
+  Escenario: Busca los libros mas populares
+      Dada que el usuario ingresa Busqueda Popular
+	  Cuando quiere saber los libros mas rankeados
       Y estos son
       | LIBROS                   |
-      | Anansi Boys              |
-      | American Gods            |
-      | Stardust                 |
-      Y obtiene el mensaje 'Existen 3 libros de este autor.'
+      | Persona Normal           |
+      | Corazonadas              |
+	  | The Lies of Locke Lamora |
+	  | It                       |
+	  | La Historia Interminable |
+      Y obtiene el mensaje 'Estos son los 5 libros con mejor puntuación.'
 
-  @autor
-  Escenario: Busca un autor del cual no existen libros: Patrick Rothfuss
-      Dada que el usuario ingresa el autor 'Patrick Rothfuss'
-      Cuando busque los libros por autor
-      Entonces obtendrá 0 libros de resultado
-      Y obtiene el mensaje 'No existen libros para ese autor.'
+
+  

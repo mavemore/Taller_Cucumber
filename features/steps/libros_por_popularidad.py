@@ -14,19 +14,17 @@ def step_impl(context):
 		lista_libros.append(libro)
 	context.libros = lista_libros
 
-@given("que el usuario ingresa el autor '{autor}'")
-def step_impl(context, autor):
-	context.busqueda = autor
+@given("que el usuario ingresa Busqueda Popular")
+def step_impl(context, Populares):
+	context.busqueda = Populares
 
-@when("busque los libros por autor")
+@when("quiere saber los libros mas rankeados")
 def step_impl(context):
-	resultado, mensaje = get_libros_autor(context.libros,context.busqueda)
+	resultado, mensaje = get_populares(context.libros)
 	context.resultado = resultado
 	context.mensaje = mensaje
 
-@then("obtendrá {total} libros de resultado")
-def step_impl(context,total):
-	assert len(context.resultado) == int(total)
+
 
 @then("estos son")
 def step_impl(context):
