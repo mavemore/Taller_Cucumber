@@ -6,7 +6,7 @@ def get_libros_autor(lista_libros, autor):
 	if len(busqueda)>0:
 		mensaje = 'Existen '+str(len(busqueda))+' libros de este autor.'
 	else:
-		mensaje = 'No existen libros para de ese autor.'
+		mensaje = 'No existen libros para ese autor.'
 	return busqueda, mensaje
 
 def get_libro_isbn(lista_libros, isbn):

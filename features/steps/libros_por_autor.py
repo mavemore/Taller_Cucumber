@@ -41,3 +41,7 @@ def step_impl(context):
 			print("No estan " + libro.nombre)
 			son_libros_esperados = False
 	assert son_libros_esperados is True
+
+@then("obtiene el mensaje '{mensaje}'")
+def step_impl(context, mensaje):
+	assert context.mensaje == mensaje

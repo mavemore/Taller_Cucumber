@@ -17,7 +17,7 @@ Característica: Obtener libros por autor
      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
 
   @autor
-  Escenario: Busca el autor Neil Gaiman.
+  Escenario: Busca un autor del cual existen libros: Neil Gaiman
       Dada que el usuario ingresa el autor 'Neil Gaiman'
       Cuando busque los libros por autor
       Entonces obtendrá 3 libros de resultado
@@ -26,3 +26,11 @@ Característica: Obtener libros por autor
       | Anansi Boys              |
       | American Gods            |
       | Stardust                 |
+      Y obtiene el mensaje 'Existen 3 libros de este autor.'
+
+  @autor
+  Escenario: Busca un autor del cual no existen libros: Patrick Rothfuss
+      Dada que el usuario ingresa el autor 'Patrick Rothfuss'
+      Cuando busque los libros por autor
+      Entonces obtendrá 0 libros de resultado
+      Y obtiene el mensaje 'No existen libros para ese autor.'
