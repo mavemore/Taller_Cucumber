@@ -34,11 +34,11 @@ def step_impl(context):
 	libros_esperados = []
 	for row in context.table:
 		libros_esperados.append(row['LIBROS'])
-		print(libros_esperados)
+		#print(libros_esperados)
 	for libro in context.resultado:
-		print(libro.nombre)
+		#print(libro.nombre)
 		if libro.nombre not in libros_esperados:
-			print("No estan " + libro.nombre)
+			#print("No estan " + libro.nombre)
 			son_libros_esperados = False
 	assert son_libros_esperados is True
 

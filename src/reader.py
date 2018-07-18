@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 """Funciones necesarias para realizar busquedas de libros."""
 
 def get_libros_autor(lista_libros, autor):
@@ -43,10 +44,10 @@ def get_populares(lista_libros):
 	lista = sorted(lista_libros, key=lambda x: x.rating, reverse=True)
 	if len(lista)>=5:
 		busqueda = lista[:5]
-		mensaje = 'Estos son los 5 libros con mejor puntuación.'
-	elif len(lista)>=0:
+		mensaje = 'Estos son los 5 libros con mejor puntuacion.'
+	elif len(lista)>0:
 		busqueda = lista
-		mensaje = 'Estos son los '+str(len(lista))+' libros con mejor puntuación.'
+		mensaje = 'Estos son los '+str(len(lista))+' libros con mejor puntuacion.'
 	else:
 		busqueda = []
 		mensaje = 'No existen libros a mostrar.'
