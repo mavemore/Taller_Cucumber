@@ -25,8 +25,16 @@ def step_impl(context):
 	context.mensaje = mensaje
 
 
+@when(u'estos libros son')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When estos libros son')
+	
+@when(u'recibe el mensaje \'Estos son los 5 libros con mejor puntuación.\'')
+def step_impl(context):
+    raise NotImplementedError(u'STEP: When recibe el mensaje \'Estos son los 5 libros con mejor puntuación.\'')
 
-@then("estos libros son")
+	
+	@then("estos libros son")
 def step_impl(context):
 	son_libros_esperados = True
 	libros_esperados = []
