@@ -44,7 +44,7 @@ def get_populares(lista_libros):
 	if len(lista)>=5:
 		busqueda = lista[:5]
 		mensaje = 'Estos son los 5 libros con mejor puntuación.'
-	elif len(lista)>=0:
+	elif len(lista)>0:
 		busqueda = lista
 		mensaje = 'Estos son los '+str(len(lista))+' libros con mejor puntuación.'
 	else:
