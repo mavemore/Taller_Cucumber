@@ -5,7 +5,7 @@ from src.reader import *
 def before_scenario(context, scenario):
 	context = {}
 
-@given("un conjunto de libros")
+@given("un conjunto de libros 1")
 def step_impl(context):
 	lista_libros = []
 	for row in context.table:
@@ -24,7 +24,7 @@ def step_impl(context):
 	context.resultado = resultado
 	context.mensaje = mensaje
 
-@then("obtendrá {total} libros de resultado")
+@then("obtendrá {total} libros de resultado por autor")
 def step_impl(context,total):
 	assert len(context.resultado) == int(total)
 
