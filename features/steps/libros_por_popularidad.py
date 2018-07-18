@@ -5,7 +5,7 @@ from src.reader import *
 def before_scenario(context, scenario):
 	context = {}
 
-@given("un conjunto de libros")
+@given("una lista de libros")
 def step_impl(context):
 	lista_libros = []
 	for row in context.table:
