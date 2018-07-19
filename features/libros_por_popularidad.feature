@@ -1,6 +1,6 @@
 # language: es
 
-Característica: Obtener libros por autor
+Característica: Obtener libros por popularidad
 
   @Populares
   Escenario: Busca los libros mas populares
@@ -16,15 +16,17 @@ Característica: Obtener libros por autor
      | Stardust                 | Neil Gaiman   | 9780380804559 | 4.08   | fantasía  | inglés  |
      | 1984                     | George Orwell | 9780451524935 | 4.16   | scifi     | inglés  |
      | La Historia Interminable | Michael Ende  | 9789705804809 | 4.18   | fantasía  | español |
-	Cuando quiere saber los libros mas rankeados
-	Entonces obtendra los libros mas rankeados
-    Y estos libros son
+
+	Entonces obtendra los 5 libros mas rankeados en orden
+	
+	Y estos libros populares son
       | LIBROS                   |
       | Persona Normal           |
       | Corazonadas              |
 	  | The Lies of Locke Lamora |
 	  | It                       |
 	  | La Historia Interminable |
+
     Y recibe el mensaje 'Estos son los 5 libros con mejor puntuación.'
 
 

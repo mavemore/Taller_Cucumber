@@ -14,21 +14,28 @@ def step_impl(context):
 		lista_libros.append(libro)
 	context.libros = lista_libros
 
-@when("quiere saber los libros mas rankeados")
+
+@then("obtendra los 5 libros mas rankeados en orden")
 def step_impl(context):
 	result, mess = get_populares(context.libros)
 	context.resultado = result
 	context.mensaje = mess
+	print(result)
 
-@then(u'obtendra los libros mas rankeados')
+@then("estos libros populares son")
 def step_impl(context):
-    raise NotImplementedError(u'STEP: Then  obtendra los libros mas rankeados')
+	son_libros_esperados = True
+	libros_esperados = []
+	for row in context.table:
+		libros_esperados.append(row['LIBROS'])
+		print(libros_esperados)
+	for libro in context.resultado:
+		print(libro.nombre)
+		if libro.nombre not in libros_esperados:
+			print("No estan " + libro.nombre)
+			son_libros_esperados = False
+	assert son_libros_esperados is True
 
-
-@then(u'estos libros son')
-def step_impl(context):
-    raise NotImplementedError(u'STEP: Then estos libros son')	
-	
 @then("recibe el mensaje '{mensaje}'")
 def step_impl(context, mensaje):
 	assert context.mensaje == mensaje
