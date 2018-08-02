@@ -24,7 +24,7 @@ def step_impl(context):
 	context.resultado = resultado
 	context.mensaje = mensaje
 
-@then("obtendrá {total} libros de resultado por autor")
+@then("obtendra {total} libros de resultado por autor")
 def step_impl(context,total):
 	assert len(context.resultado) == int(total)
 

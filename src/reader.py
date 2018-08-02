@@ -15,7 +15,7 @@ def get_libro_isbn(lista_libros, isbn):
 	resultado = None
 	if len(busqueda)>0:
 		resultado = busqueda[0]
-		mensaje = 'Se encontró 1 libro con ese ISBN.'
+		mensaje = 'Se encontro 1 libro con ese ISBN.'
 	else:
 		mensaje = 'No existe un libro con ese ISBN.'
 	return resultado, mensaje
@@ -43,10 +43,10 @@ def get_populares(lista_libros):
 	lista = sorted(lista_libros, key=lambda x: x.rating, reverse=True)
 	if len(lista)>=5:
 		busqueda = lista[:5]
-		mensaje = 'Estos son los 5 libros con mejor puntuación.'
+		mensaje = 'Estos son los 5 libros con mejor puntuacion.'
 	elif len(lista)>=0:
 		busqueda = lista
-		mensaje = 'Estos son los '+str(len(lista))+' libros con mejor puntuación.'
+		mensaje = 'Estos son los '+str(len(lista))+' libros con mejor puntuacion.'
 	else:
 		busqueda = []
 		mensaje = 'No existen libros a mostrar.'
